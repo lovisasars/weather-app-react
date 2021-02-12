@@ -1,10 +1,9 @@
-import logo from "./logo.svg";
 import "./App.css";
 import React from "react";
-
 import Header from "./Header";
 import Footer from "./Footer";
 import Forecast from "./Forecast";
+
 export default function App() {
   return (
     <div className="App">
