@@ -5,7 +5,10 @@ export default function Footer() {
     <div className="Footer">
       <br />
       <p>
-        <a href="https://github.com/lovisasars/My-project" target="_blank">
+        <a
+          href="https://github.com/lovisasars/weather-app-react"
+          target="_blank"
+        >
           Open-source code
         </a>{" "}
         by Lovisa Sars
