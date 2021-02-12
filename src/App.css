@@ -1,38 +1,147 @@
 .App {
+  font-family: sans-serif;
   text-align: center;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+body {
+  background-color: #99a8b2;
+  opacity: 70%;
+  background-image: url("/skyLight.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+form {
+  text-align: center;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+h1,
+h2,
+h3,
+h4,
+h5 {
+  text-align: center;
+  color: #1c2b2d;
+  font-family: "Quicksand", sans-serif;
 }
 
-.App-link {
-  color: #61dafb;
+h1 {
+  font-size: 60px;
+  color: #0a043c;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+h2 {
+  font-size: 35px;
+  color: #14274e;
+}
+
+h3 {
+  font-size: 20px;
+}
+h4 {
+  font-size: 40px;
+}
+
+.Week {
+  font-family: "Quicksand", sans-serif;
+}
+
+.col-sm-2 {
+  color: #1f6f8b;
+}
+
+.card {
+  background: #d0e8f2;
+}
+
+.card-text {
+  font-size: 15px;
+}
+
+p {
+  color: #14274e;
+  text-align: center;
+}
+
+.temp {
+  font-size: 30px;
+  color: #1c2b2d;
+  display: inline;
+}
+
+a {
+  color: #1f6f8b;
+  display: inline;
+}
+
+a:hover {
+  color: #000000;
+  font-style: normal;
+  text-emphasis: none;
+  text-decoration: none;
+}
+
+.Units {
+  position: relative;
+  font-size: 25px;
+  top: -20px;
+}
+
+.col-form-label {
+  padding: 4px;
+  border-radius: 5px;
+  border: 1px solid;
+  font-size: 14px;
+  border-color: #738598;
+  outline: none;
+}
+
+.btn-light {
+  padding: 5px;
+  border-color: #738598;
+  border-radius: 5px;
+  font-size: 14px;
+  background-color: #f3f9fb;
+}
+
+.btn-light:hover {
+  background-color: #99a8b2;
+}
+
+.Active {
+  color: #1c2b2d;
+  cursor: default;
+}
+
+.Active:hover {
+  text-decoration: none;
+}
+
+.Hum-wind {
+  font-size: 14px;
+  color: #1c2b2d;
+
+  font-family: "Quicksand", sans-serif;
+}
+
+#day-one,
+#day-two,
+#day-three,
+#day-four,
+#day-five {
+  font-size: 14px;
+}
+
+#icon-one,
+#icon-two,
+#icon-three,
+#icon-four,
+#icon-five {
+  width: 50px;
+}
+
+#humidity,
+#windspeed {
+  font-weight: bold;
+  color: #0a043c;
 }
