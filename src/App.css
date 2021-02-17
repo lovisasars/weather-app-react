@@ -5,7 +5,7 @@
 
 body {
   background-color: #99a8b2;
-  background-image: url(/public/skyLight.jpg);
+  background-image: url(./skyLight.jpg);
   background-repeat: no-repeat;
   background-size: cover;
 }
