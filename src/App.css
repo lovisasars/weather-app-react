@@ -1,6 +1,8 @@
 .App {
   font-family: sans-serif;
   text-align: center;
+  margin: 0 auto;
+  max-width: 800px;
 }
 
 body {
@@ -43,6 +45,7 @@ h4 {
 
 .Week {
   font-family: "Quicksand", sans-serif;
+  margin-left: 50px;
 }
 
 .col-sm-2 {
