@@ -1,9 +1,36 @@
-import React from "react";
+import React, { useState } from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
+import axios from "axios";
+import FormattedDate from "./FormattedDate";
 
 export default function Forecast() {
- 
-  return (
+  
+  const [weatherData, setWeatherData] = useState({ ready: false});
+
+
+  function handleResponse (response) {
+    console.log(response.data);
+  setWeatherData ({
+   
+      temperature: Math.round(response.data.main.temp),
+      humidity: response.data.main.humidity,
+      description: response.data.weather[0].description,
+      icon: response.data.weather[0].icon,
+      wind: response.data.wind.speed,
+      city: response.data.name,
+      date: new Date(response.data.dt * 1000)
+
+  })
+}
+
+const city = "New York";
+  const apiKey = "8eb322b04629a0b2fdac0ac79561148e";
+  const apiUrl = `https://m.,m.,oihoygfapi.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`
+  axios.get(apiUrl).then(handleResponse);
+
+
+if (weatherData.ready) {
+return (
 
     <div className="Container">
       <form className="search-city">
@@ -18,14 +45,11 @@ export default function Forecast() {
         </button>
       </form>
       <br />
-   <h2>Stockholm</h2>
-      <h3>Monday 12:25</h3>
+   <h2>{city}</h2>
+      <FormattedDate date={weatherData.date} />
       <h1>
-        <img
-          src="http://openweathermap.org/img/wn/02d@2x.png"
-          alt="weatherIcon"
-        />
-        1
+        {weatherData.icon}
+        {weatherData.temperature}
         <span className="Units">
           <a href="#" className="active">
             {" "}
@@ -35,8 +59,10 @@ export default function Forecast() {
         </span>
       </h1>
       <p className="Hum-wind">
-        Humidity: 86 % <br />
-        Windspeed: 1 km/h
+        {weatherData.description}
+        <br />
+        Humidity: {weatherData.humidity} % <br />
+        Windspeed: {weatherData.wind} km/h
       </p>
     
       <br />
@@ -128,4 +154,14 @@ export default function Forecast() {
     </div>
     </div>
   );
+} else {
+  
+
+return ("Loading...");
+
+}
+
+ 
+
+  
 }
