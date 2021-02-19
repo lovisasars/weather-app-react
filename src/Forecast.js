@@ -3,7 +3,7 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import axios from "axios";
 import FormattedDate from "./FormattedDate";
 
-export default function Forecast() {
+export default function Forecast(props) {
   
   const [weatherData, setWeatherData] = useState({ ready: false});
 
@@ -11,7 +11,7 @@ export default function Forecast() {
   function handleResponse (response) {
     console.log(response.data);
   setWeatherData ({
-   
+      ready: true,
       temperature: Math.round(response.data.main.temp),
       humidity: response.data.main.humidity,
       description: response.data.weather[0].description,
@@ -20,7 +20,7 @@ export default function Forecast() {
       city: response.data.name,
       date: new Date(response.data.dt * 1000)
 
-  })
+  });
 }
 
 const city = "New York";
@@ -157,7 +157,8 @@ return (
 } else {
   
 
-return ("Loading...");
+return (
+  <div>Loading...</div>);
 
 }
 
