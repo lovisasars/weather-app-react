@@ -23,9 +23,8 @@ export default function Forecast(props) {
   });
 }
 
-const city = "New York";
   const apiKey = "8eb322b04629a0b2fdac0ac79561148e";
-  const apiUrl = `https://m.,m.,oihoygfapi.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`
+  const apiUrl = `https://m.,m.,oihoygfapi.openweathermap.org/data/2.5/weather?q=${props.defaultCity}&appid=${apiKey}&units=metric`
   axios.get(apiUrl).then(handleResponse);
 
 
@@ -45,7 +44,7 @@ return (
         </button>
       </form>
       <br />
-   <h2>{city}</h2>
+   <h2>{weatherData.city}</h2>
       <FormattedDate date={weatherData.date} />
       <h1>
         {weatherData.icon}
