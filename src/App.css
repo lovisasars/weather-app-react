@@ -126,24 +126,10 @@ a:hover {
   font-family: "Quicksand", sans-serif;
 }
 
-#day-one,
-#day-two,
-#day-three,
-#day-four,
-#day-five {
-  font-size: 14px;
-}
-
-#icon-one,
-#icon-two,
-#icon-three,
-#icon-four,
-#icon-five {
-  width: 50px;
-}
-
-#humidity,
-#windspeed {
-  font-weight: bold;
-  color: #0a043c;
+.Icon-one,
+.Icon-two,
+.Icon-three,
+.Icon-four,
+.Icon-five {
+  max-width: 60px;
 }

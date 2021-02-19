@@ -3,6 +3,7 @@ import React from "react";
 import Header from "./Header";
 import Footer from "./Footer";
 import Forecast from "./Forecast";
+import "bootstrap/dist/css/bootstrap.min.css";
 
 export default function App() {
   return (
@@ -15,23 +16,19 @@ export default function App() {
         <img
           src="http://openweathermap.org/img/wn/02d@2x.png"
           alt="weatherIcon"
-          id="icon"
         />
-        <span id="temp-number">1</span>
+        1
         <span className="Units">
-          <a href="#" id="celsius-link" className="active">
+          <a href="#" className="active">
             {" "}
             °C
           </a>{" "}
-          |
-          <a href="#" id="fahrenheit-link">
-            °F
-          </a>
+          |<a href="#">°F</a>
         </span>
       </h1>
       <p className="Hum-wind">
-        Humidity: <span id="humidity">86</span>% <br />
-        Windspeed: <span id="windspeed">1</span> km/h
+        Humidity: 86 % <br />
+        Windspeed: 1 km/h
       </p>
       <br />
       <Forecast />
