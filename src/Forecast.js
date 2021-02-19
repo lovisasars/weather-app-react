@@ -9,13 +9,14 @@ export default function Forecast(props) {
 const [city, setCity] = useState (props.defaultCity);
 
   function handleResponse (response) {
+   
   setWeatherData({
       ready: true,
       temperature: Math.round(response.data.main.temp),
-      humidity: response.data.main.humidity,
+      humidity: Math.round(response.data.main.humidity),
       description: response.data.weather[0].description,
-      icon: response.data.weather[0].icon,
-      wind: response.data.wind.speed,
+      icon: `https://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`,
+      wind: Math.round(response.data.wind.speed),
       city: response.data.name,
       date: new Date(response.data.dt * 1000)
 
@@ -59,7 +60,7 @@ return (
    <h2>{weatherData.city}</h2>
       <FormattedDate date={weatherData.date} />
       <h1>
-        {weatherData.icon}
+        <img src={weatherData.icon}  alt="icon" />
         {weatherData.temperature}
         <span className="Units">
           <a href="#" className="active">
@@ -70,7 +71,7 @@ return (
         </span>
       </h1>
       <p className="Hum-wind">
-        {weatherData.description}
+        <h3>{weatherData.description}</h3>
         <br />
         Humidity: {weatherData.humidity} % <br />
         Windspeed: {weatherData.wind} km/h
