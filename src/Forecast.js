@@ -6,11 +6,10 @@ import FormattedDate from "./FormattedDate";
 export default function Forecast(props) {
   
   const [weatherData, setWeatherData] = useState({ ready: false});
-
+const [city, setCity] = useState (props.defaultCity);
 
   function handleResponse (response) {
-    console.log(response.data);
-  setWeatherData ({
+  setWeatherData({
       ready: true,
       temperature: Math.round(response.data.main.temp),
       humidity: response.data.main.humidity,
@@ -23,21 +22,36 @@ export default function Forecast(props) {
   });
 }
 
+
+  function handleSubmit (event) {
+event.preventDefault();
+search();
+
+  }
+
+  function handleCityChange (event) {
+setCity(event.target.value);
+  }
+
+function search(){
   const apiKey = "8eb322b04629a0b2fdac0ac79561148e";
-  const apiUrl = `https://m.,m.,oihoygfapi.openweathermap.org/data/2.5/weather?q=${props.defaultCity}&appid=${apiKey}&units=metric`
+  const apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`
   axios.get(apiUrl).then(handleResponse);
+
+
+}
+
 
 
 if (weatherData.ready) {
 return (
-
     <div className="Container">
-      <form className="search-city">
+      <form className="search-city" onSubmit={handleSubmit}>
         <input
           type="text"
           placeholder="Enter your city"
           className="col-form-label"
-        />{" "}
+        onChange={handleCityChange}/>{" "}
         <input type="submit" value="Search" className="btn btn-light" />{" "}
         <button type="button" className="btn btn-light">
           Use my current location
@@ -154,8 +168,7 @@ return (
     </div>
   );
 } else {
-  
-
+ search();
 return (
   <div>Loading...</div>);
 

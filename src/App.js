@@ -10,7 +10,7 @@ export default function App() {
       <br />
       
    
-      <Forecast />
+      <Forecast defaultCity="New York"/>
       <Footer />
       <br />
     </div>
