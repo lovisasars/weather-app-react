@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
 import axios from "axios";
 import FormattedDate from "./FormattedDate";
+import WeatherTemp from "./WeatherTemp";
 
 export default function Forecast(props) {
   
@@ -59,17 +60,12 @@ return (
       <br />
    <h2>{weatherData.city}</h2>
       <FormattedDate date={weatherData.date} />
-      <h1>
+            <h1>
         <img src={weatherData.icon}  alt="icon" />
-        {weatherData.temperature}
-        <span className="Units">
-          <a href="#" className="active">
-            {" "}
-            °C
-          </a>{" "}
-          |<a href="#">°F</a>
-        </span>
-      </h1>
+       </h1>
+      <WeatherTemp celsius={weatherData.temperature} />
+     
+
       <p className="Hum-wind">
         <h3>{weatherData.description}</h3>
         <br />
