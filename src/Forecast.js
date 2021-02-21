@@ -121,7 +121,7 @@ const apiUrl = `https://api.openweathermap.org/data/2.5/forecast?q=${props.city}
 axios.get(apiUrl).then(handleResponse);
 
     return (
-        <Loader type="ThreeDots" color="#1f6f8b" height={80} width={80} />
+        <Loader type="ThreeDots" color="#0a043c" height={80} width={80} />
         
         );
 }
