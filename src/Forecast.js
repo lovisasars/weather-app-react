@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import axios from "axios";
+import ForecastDays from "./ForecastDays";
 
 export default function Forecast (props) {
     const [loaded, setLoaded] = useState (false);
@@ -23,11 +24,12 @@ if (loaded) {
     let IconFour = `https://openweathermap.org/img/wn/${forecast.list[32].weather[0].icon}@2x.png`
     let IconFive = `https://openweathermap.org/img/wn/${forecast.list[39].weather[0].icon}@2x.png`
 
+
     return  (
         <div className="Week">
       <div className="row">
         <div className="col-sm-2">
-          <h5 className="card-title">Monday</h5>
+          <ForecastDays date={new Date(forecast.list[8].dt * 1000)} />
           <div className="card">
             <div className="card-body">
               <p className="card-text">
@@ -39,11 +41,11 @@ if (loaded) {
                 <br />
                 {Math.round(forecast.list[8].main.temp)} °c
               </p>
-            </div>
+             </div>
           </div>
         </div>
         <div className="col-sm-2">
-          <h5 className="card-title">Tuesday</h5>
+          <ForecastDays date={new Date(forecast.list[16].dt * 1000)} />
           <div className="card">
             <div className="card-body">
               <p className="card-text">
@@ -59,7 +61,7 @@ if (loaded) {
           </div>
         </div>
         <div className="col-sm-2">
-          <h5 className="card-title">Wednesday</h5>
+          <ForecastDays date={new Date(forecast.list[24].dt * 1000)} />
           <div className="card">
             <div className="card-body">
               <p className="card-text">
@@ -75,7 +77,7 @@ if (loaded) {
           </div>
         </div>
         <div className="col-sm-2">
-          <h5 className="card-title">Thursday</h5>
+          <ForecastDays date={new Date(forecast.list[32].dt * 1000)} />
           <div className="card">
             <div className="card-body">
               <p className="card-text">
@@ -91,7 +93,7 @@ if (loaded) {
           </div>
         </div>
         <div className="col-sm-2">
-          <h5 className="card-title">Friday</h5>
+          <ForecastDays date={new Date(forecast.list[39].dt * 1000)} />
           <div className="card">
             <div className="card-body">
               <p className="card-text">
