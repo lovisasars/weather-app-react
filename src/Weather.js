@@ -4,6 +4,8 @@ import axios from "axios";
 import FormattedDate from "./FormattedDate";
 import WeatherTemp from "./WeatherTemp";
 import Forecast from "./Forecast";
+import Loader from "react-loader-spinner";
+
 
 export default function Weather(props) {
   
@@ -11,7 +13,7 @@ export default function Weather(props) {
 const [city, setCity] = useState (props.defaultCity);
 
   function handleResponse (response) {
-   
+   console.log(response.data);
   setWeatherData({
       ready: true,
       temperature: Math.round(response.data.main.temp),
@@ -54,9 +56,7 @@ return (
           className="col-form-label"
         onChange={handleCityChange}/>{" "}
         <input type="submit" value="Search" className="btn btn-light" />{" "}
-        <button type="button" className="btn btn-light">
-          Use my current location
-        </button>
+       
       </form>
       <br />
       <h2>{weatherData.city}</h2>
@@ -85,7 +85,7 @@ return (
  search();
  return (
    <div>
-     Loading...
+     <Loader type="ThreeDots" color="#0a043c" height={80} width={80} />
    </div>
  )
 }
