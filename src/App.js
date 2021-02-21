@@ -1,7 +1,7 @@
 import "./App.css";
 import React from "react";
 import Footer from "./Footer";
-import Forecast from "./Forecast";
+import Weather from "./Weather";
 import "bootstrap/dist/css/bootstrap.min.css";
 
 export default function App() {
@@ -10,7 +10,7 @@ export default function App() {
       <br />
       
    
-      <Forecast defaultCity="New York"/>
+      <Weather defaultCity="New York"/>
       <Footer />
       <br />
     </div>
