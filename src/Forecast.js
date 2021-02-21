@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import axios from "axios";
 import ForecastDays from "./ForecastDays";
+import Loader from "react-loader-spinner";
 
 export default function Forecast (props) {
     const [loaded, setLoaded] = useState (false);
@@ -17,7 +18,7 @@ function handleResponse (response) {
    
 }
 
-if (loaded) {
+if (loaded && props.city === forecast.city.name) {
     let IconOne = `https://openweathermap.org/img/wn/${forecast.list[8].weather[0].icon}@2x.png`
     let IconTwo = `https://openweathermap.org/img/wn/${forecast.list[16].weather[0].icon}@2x.png`
     let IconThree = `https://openweathermap.org/img/wn/${forecast.list[24].weather[0].icon}@2x.png`
@@ -26,6 +27,8 @@ if (loaded) {
 
 
     return  (
+
+        
         <div className="Week">
       <div className="row">
         <div className="col-sm-2">
@@ -118,18 +121,9 @@ const apiUrl = `https://api.openweathermap.org/data/2.5/forecast?q=${props.city}
 axios.get(apiUrl).then(handleResponse);
 
     return (
-        <div>
-{props.city}
-        </div>
+        <Loader type="ThreeDots" color="#1f6f8b" height={80} width={80} />
+        
         );
 }
 
 }
-
-
-//response data forecast
-//first day = forecast.list[8].main.temp // response.data.list[8].weather[0].icon
-//second day = response.data.list[16].main.temp // response.data.list[16].weather[0].icon
-//third day = response.data.list[24].main.temp // response.data.list[24].weather[0].icon
-//fourth day = response.data.list[32].main.temp // response.data.list[32].weather[0].icon
-//fifth day = response.data.list[39].main.temp // response.data.list[39].weather[0].icon
